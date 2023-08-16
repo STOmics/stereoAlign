@@ -10,4 +10,4 @@ Welcome to stereoAlign's documentation!
    :maxdepth: 2
    :caption: Contents
    
-   API
+   api
