@@ -1,5 +1,6 @@
-stereoAlign
+alignment
 ===========
+
 
 .. automodule:: stereoAlign.alignment
    :members:
