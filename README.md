@@ -11,7 +11,7 @@ Behold, a magnificent toolkit emerges, designed to seamlessly integrate the vast
 [![scanpy-1.9.1](https://img.shields.io/badge/scanpy-1.9.1-informational)](https://pypi.org/project/scanpy/)           
                 
 # Install         
-The `stereoAlign` python package is available on [Pypi]() and can be installed through      
+The `stereoAlign` python package is available on [Pypi](https://pypi.org/project/stereoAlign/) and can be installed through      
 ```python
 pip install stereoAlign
 ```            
@@ -41,7 +41,7 @@ This toolkit that is compared include:
         
 # Metric        
 |  **Metric Method**  | **Invoke**                               |
-|:-------------------:|:-----------------------------------------:|
+|:-------------------:|:-----------------------------------------|
 |         ARI         | `stereoAlign.metrics.ari`                |
 | Graph connectivity  | `stereoAlign.metrics.graph_connectivity` |
 |        KBET         | `stereoAlign.metrics.get_kbet`           |

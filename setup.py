@@ -5,11 +5,22 @@
 # @File    : setup.py
 # @Email   : zhangchao5@genomics.cn
 import setuptools
+from wheel.bdist_wheel import bdist_wheel
 
 __version__ = "0.0.1"
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+
+
+class BDistWheel(bdist_wheel):
+    def get_tag(self):
+        return (self.python_tag, "none", "any")
+
+
+cmdclass = {
+    "bdist_wheel": BDistWheel,
+}
 
 setuptools.setup(
     name="stereoAlign",
@@ -25,10 +36,11 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    cmdclass=cmdclass,
     python_requires='>=3.8',
     include_package_data=True,
     install_requires=[
-        'matplotlib>=2.2'
+        'matplotlib>=2.2',
         'tensorflow',
         'scanpy',
         'louvain',
