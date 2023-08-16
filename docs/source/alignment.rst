@@ -1,7 +1,6 @@
 alignment
 ===========
 
-
 .. automodule:: stereoAlign.alignment
    :members:
    :undoc-members:

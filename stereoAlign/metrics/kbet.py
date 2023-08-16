@@ -32,11 +32,13 @@ def get_kbet(
         use_rep: str = "X_umap",
         alpha: float = 0.05,
         n_neighbors: int = 30):
-    """ Calculate the K-nearest neighbors Batch Effects Test (K-BET) metric of the data regarding a specific sample attribute and embedding.
+    """K-nearest neighbors Batch Effects Test (K-BET)
+
+    Calculate the K-nearest neighbors Batch Effects Test (K-BET) metric of the data regarding a specific sample attribute and embedding.
     The K-BET metric measures if cells from different samples mix well in their local neighborhood.
 
     Parameters
-    _______________________
+    __________
     data: ``AnnData``
         Data matrix with rows for cells and columns for genes.
     key: ``str``
@@ -49,7 +51,7 @@ def get_kbet(
         Threshold. A cell is accepted is its K-BET p-value is greater than or equal to ``alpha``
 
     Returns
-    -----------------------
+    -------
     stat_mean: ``float``
         Mean K-BET chi-square statistic over all cells.
     pvalue_mean: ``float``

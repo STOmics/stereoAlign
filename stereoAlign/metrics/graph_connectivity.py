@@ -10,7 +10,29 @@ from scipy.sparse.csgraph import connected_components
 
 
 def graph_connectivity(adata, label_key):
+    r"""Graph Connectivity
 
+    Quantify the connectivity of the subgraph per cell type label.
+    The final score is the average for all cell type labels :math:`C`, according to the equation:
+
+    .. math::
+
+        GC = \\frac {1} {|C|} \\sum_{c \\in C} \\frac {|{LCC(subgraph_c)}|} {|c|}
+
+    where :math:`|LCC(subgraph_c)|` stands for all cells in the largest connected component and :math:`|c|` stands for all cells of
+    cell type :math:`c`.
+
+    Parameters
+    ----------
+    adata:
+        integrated adata with computed neighborhood graph
+    label_key:
+        name in adata.obs containing the cell identity labels
+
+    This function can be applied to all integration output types.
+    The integrated object (``adata``) needs to have a kNN graph based on the integration output.
+
+    """
     if "neighbors" not in adata.uns:
         raise KeyError(
             "Please compute the neighborhood graph before running this function!"

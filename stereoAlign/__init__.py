@@ -4,7 +4,7 @@
 # @Author  : zhangchao
 # @File    : __init__.py.py
 # @Email   : zhangchao5@genomics.cn
-from . import alignment, metrics_utils
+from . import alignment, metrics
 from warnings import filterwarnings
 
 filterwarnings("ignore")

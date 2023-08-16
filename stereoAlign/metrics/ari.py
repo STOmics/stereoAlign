@@ -15,7 +15,29 @@ from stereoAlign.utils import check_adata, check_batch
 
 @deprecated_arg_names({"group1": "cluster_key", "group2": "label_key"})
 def ari(adata, cluster_key, label_key, implementation=None):
+    """Adjusted Rand Index
 
+    The adjusted rand index is a chance-adjusted rand index, which evaluates the pair-wise accuracy of clustering vs.
+    ground truth label assignments.
+    The score ranges between 0 and 1 with larger values indicating better conservation of the data-driven cell identity
+    discovery after integration compared to annotated labels.
+
+    Parameters
+    ----------
+    adata:
+        anndata object with cluster assignments in ``adata.obs[cluster_key]``
+    cluster_key:
+        string of column in adata.obs containing cluster assignments
+    label_key:
+        string of column in adata.obs containing labels
+    implementation:
+        if set to 'sklearn', uses sklearn's implementation, otherwise native implementation is taken
+
+    This function can be applied to all integration output types.
+    The ``adata`` must contain cluster assignments that are based off the knn graph given or derived from the integration
+    method output.
+
+    """
     check_adata(adata)
     check_batch(cluster_key, adata.obs)
     check_batch(label_key, adata.obs)

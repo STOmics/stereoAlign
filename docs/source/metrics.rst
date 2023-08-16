@@ -1,8 +1,19 @@
 metrics
 =======
 
+.. autosummary::
+    :toctree: api/
 
-.. automodule:: stereoAlign.metrics
-   :members:
-   :undoc-members:
-   :show-inheritance:
+    stereoAlign.metrics.ari
+    stereoAlign.metrics.graph_connectivity
+    stereoAlign.metrics.kbet
+    stereoAlign.metrics.lisi
+    stereoAlign.metrics.silhouette
+    stereoAlign.metrics.silhouette_batch
+
+
+
+
+
+
+

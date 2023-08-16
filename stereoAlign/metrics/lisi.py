@@ -25,29 +25,33 @@ def get_lisi(
         key: str = "batch",
         use_rep: str = "X_umap",
         n_neighbors: int = 30):
-    """"Calculate the Local inverse Simpson's Index (LISI) metric of the data regarding a specific sample attribute and embedding.
+    """Local inverse Simpson's Index (LISI)
+
+    Calculate the Local inverse Simpson's Index (LISI) metric of the data regarding a specific sample attribute and embedding.
     The LISI metric measures if cells from different samples mix well in their local neighborhood.
 
     Parameters
-    --------------------------------
-    data: ``AnnData``
+    ----------
+    data:
         Data matrix with rows for cells and columns for genes.
-    key: ``str``
+    key:
         The sample attribute to be consider. Must exist in ``data.obs``.
-    use_rep: ``str``
-         The embedding representation to be used. The key must be exist in ``data.obsm``. By default, use UMAP coordinates.
-    n_neighbors: ``int``
+    use_rep:
+        The embedding representation to be used. The key must be exist in ``data.obsm``. By default, use UMAP coordinates.
+    n_neighbors:
         Number of nearest neighbors.
 
     Returns
-    --------------------------------
-    lisi_mean: ``float``
+    -------
+    lisi_mean:
         Mean of calculated score.
-    lower: ``float``
+    lower:
         Lower bound of 95% confidence interval.
-    upper: ``float``
+    upper:
         Upper bound of 95% confidence interval.
+
     """
+
     assert key in data.obs_keys()
 
     n_sample = data.shape[0]
