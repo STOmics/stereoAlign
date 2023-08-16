@@ -42,11 +42,11 @@ This toolkit that is compared include:
 # Metric        
 |  **Metric Method**  | **Invoke**                               |
 |:-------------------:|:-----------------------------------------|
-|         ARI         | `stereoAlign.metrics.ari`                |
-| Graph connectivity  | `stereoAlign.metrics.graph_connectivity` |
-|        KBET         | `stereoAlign.metrics.get_kbet`           |
-|        LISI         | `stereoAlign.metrics.get_lisi`           |
-|     Silhouette      | `stereoAlign.metrics.silhouette`         |
+|         ARI         | `stereoAlign.metrics.cal_ari`                |
+| Graph connectivity  | `stereoAlign.metrics.cal_graph_connectivity` |
+|        KBET         | `stereoAlign.metrics.cal_kbet`           |
+|        LISI         | `stereoAlign.metrics.cal_lisi`           |
+|     Silhouette      | `stereoAlign.metrics.cal_silhouette`         |
         
 
  
