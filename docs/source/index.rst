@@ -9,6 +9,7 @@ Welcome to stereoAlign's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents
+<<<<<<< HEAD
 
    modules
 
@@ -18,3 +19,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+=======
+   
+   api
+>>>>>>> c966a04a3b13f540acccb7c3055c491e4c2309ac
