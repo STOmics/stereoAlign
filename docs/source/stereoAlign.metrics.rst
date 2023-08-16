@@ -1,53 +1,42 @@
-stereoAlign.metrics package
-===========================
+stereoAlign.metrics
+===================
 
-Submodules
-----------
-
-stereoAlign.metrics.ari module
-------------------------------
+stereoAlign.metrics.ari
+-----------------------
 
 .. automodule:: stereoAlign.metrics.ari
    :members:
    :undoc-members:
    :show-inheritance:
 
-stereoAlign.metrics.graph\_connectivity module
-----------------------------------------------
+stereoAlign.metrics.graph\_connectivity
+---------------------------------------
 
 .. automodule:: stereoAlign.metrics.graph_connectivity
    :members:
    :undoc-members:
    :show-inheritance:
 
-stereoAlign.metrics.kbet module
--------------------------------
+stereoAlign.metrics.kbet
+------------------------
 
 .. automodule:: stereoAlign.metrics.kbet
    :members:
    :undoc-members:
    :show-inheritance:
 
-stereoAlign.metrics.lisi module
--------------------------------
+stereoAlign.metrics.lisi
+------------------------
 
 .. automodule:: stereoAlign.metrics.lisi
    :members:
    :undoc-members:
    :show-inheritance:
 
-stereoAlign.metrics.silhouette module
--------------------------------------
+stereoAlign.metrics.silhouette
+------------------------------
 
 .. automodule:: stereoAlign.metrics.silhouette
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: stereoAlign.metrics
    :members:
    :undoc-members:
    :show-inheritance:

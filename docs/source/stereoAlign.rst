@@ -1,30 +1,15 @@
-stereoAlign package
-===================
-
-Subpackages
------------
+stereoAlign
+===========
 
 .. toctree::
    :maxdepth: 4
 
    stereoAlign.metrics
-   stereoAlign.utils
 
-Submodules
-----------
-
-stereoAlign.alignment module
-----------------------------
+stereoAlign.alignment
+---------------------
 
 .. automodule:: stereoAlign.alignment
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: stereoAlign
    :members:
    :undoc-members:
    :show-inheritance:
