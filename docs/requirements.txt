@@ -1,4 +1,5 @@
 nbsphinx
+myst_parser
 anndata
 bbknn
 desc
