@@ -20,8 +20,7 @@ def harmony_alignment(adata: AnnData, batch_key: str, hvg=None, n_pca: int = 100
     :param batch_key: batch key in ``adata.obs``
     :param hvg: list of highly variables to subset to. If ``None``, the full dataset will be used
     :param n_pca: PCA component
-    :return: ``anndata`` object containing the corrected feature matrix as well as an embedding representation of the
-        corrected data
+    :return: ``anndata`` object containing the corrected feature matrix as well as an embedding representation of the corrected data
     """
     try:
         from harmony import harmonize

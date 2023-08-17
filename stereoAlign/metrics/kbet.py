@@ -92,6 +92,6 @@ def get_kbet(
     accept_rate = (results[:, 1] >= alpha).sum() / n_sample
     # accept_rate = np.mean(results[:, 1] >= alpha)
 
-    reject_score = np.mean(results[:, 1] < alpha)
+    # reject_score = np.mean(results[:, 1] < alpha)
 
-    return reject_score, stat_mean, pvalue_mean, accept_rate
+    return stat_mean, pvalue_mean, accept_rate

@@ -1,6 +1,4 @@
 nbsphinx
-sphinx-automodapi
-myst-parser
 anndata
 bbknn
 desc

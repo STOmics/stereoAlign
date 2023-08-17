@@ -7,7 +7,10 @@ Welcome to stereoAlign's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
+   installation
    modules
+   tutorial
+
 
