@@ -37,7 +37,6 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
-    "sphinx_automodapi.automodapi",
     'myst_parser',
     'nbsphinx'
 ]
