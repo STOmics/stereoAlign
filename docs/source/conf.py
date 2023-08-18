@@ -37,6 +37,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
+    "sphinx_automodapi.automodapi",
     'myst_parser',
     'nbsphinx'
 ]
@@ -60,3 +61,10 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+nbsphinx_thumbnails = {
+    "notebook/Tutorial-1-Data-integration-Using-Harmony": "_static/face.png",
+    "notebook/Tutorial-2-Data-integration-Using-BBKNN": "_static/face.png",
+    "notebook/Tutorial-3-Data-integration-Using-scgen": "_static/face.png",
+    "notebook/Tutorial-4-Data-integration-Using-scvi": "_static/face.png",
+}
