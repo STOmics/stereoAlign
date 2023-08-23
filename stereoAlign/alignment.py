@@ -334,4 +334,4 @@ def scalex_alignment(adata, batch_key="batch"):
     corrected = SCALEX(split, processed=True, batch_name=batch_key, show=False, ignore_umap=True)
 
     return corrected
-import rpy2.robjects
+    
