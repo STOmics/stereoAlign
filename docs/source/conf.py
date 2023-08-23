@@ -41,6 +41,11 @@ extensions = [
     'nbsphinx'
 ]
 
+autodoc_member_order = 'bysource'
+
+html_theme = "classic"
+
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

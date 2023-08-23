@@ -7,11 +7,10 @@
 import os
 import tempfile
 from anndata import AnnData
-
 from stereoAlign.utils import check_sanity, pca_lowrank, split_batches, merge_adata
 
 
-def harmony_alignment(adata: AnnData, batch_key: str, hvg=None, n_pca: int = 100, **kwargs):
+def harmony_alignment(adata: AnnData, batch_key, hvg=None, n_pca=100, **kwargs):
     """Harmony wrapper function
 
     Based on `harmony-pytorch <https://github.com/lilab-bcb/harmony-pytorch>`_
@@ -34,7 +33,7 @@ def harmony_alignment(adata: AnnData, batch_key: str, hvg=None, n_pca: int = 100
     return adata
 
 
-def scanorama_alignment(adata: AnnData, batch_key: str, hvg=None, **kwargs):
+def scanorama_alignment(adata: AnnData, batch_key, hvg=None, **kwargs):
     """Scanorama wrapper function
 
     Based on `scanorama <https://github.com/brianhie/scanorama>`_
@@ -61,7 +60,7 @@ def scanorama_alignment(adata: AnnData, batch_key: str, hvg=None, **kwargs):
     return corrected
 
 
-def scgen_alignment(adata: AnnData, batch_key: str, cell_type: str, epochs: int = 200, hvg=None, **kwargs):
+def scgen_alignment(adata: AnnData, batch_key, cell_type, epochs=200, hvg=None, **kwargs):
     """scGen wrapper function
 
     Based on `scgen`_ with parametrization taken from the tutorial `notebook`_.
@@ -97,7 +96,7 @@ def scgen_alignment(adata: AnnData, batch_key: str, cell_type: str, epochs: int 
     return corrected_adata
 
 
-def scvi_alignment(adata: AnnData, batch_key: str, hvg=None, return_model=False, max_epochs=None):
+def scvi_alignment(adata: AnnData, batch_key, hvg=None, return_model=False, max_epochs=None):
     """scVI wrapper function
 
     Based on scvi-tools version >=0.16.0 (available through `conda <https://docs.scvi-tools.org/en/stable/installation.html>`_)
@@ -154,7 +153,7 @@ def scvi_alignment(adata: AnnData, batch_key: str, hvg=None, return_model=False,
         return vae
 
 
-def mnn_alignment(adata: AnnData, batch_key: str, hvg=None, **kwargs):
+def mnn_alignment(adata: AnnData, batch_key, hvg=None, **kwargs):
     """MNN wrapper function (``mnnpy`` implementation)
 
     Based on `mnnpy package <https://github.com/chriscainx/mnnpy>`_
@@ -188,7 +187,7 @@ def mnn_alignment(adata: AnnData, batch_key: str, hvg=None, **kwargs):
     return corrected
 
 
-def bbknn_alignment(adata: AnnData, batch_key: str, hvg=None, **kwargs):
+def bbknn_alignment(adata: AnnData, batch_key, hvg=None, **kwargs):
     """BBKNN wrapper function
 
     Based on `bbknn package <https://github.com/Teichlab/bbknn>`_
@@ -214,7 +213,7 @@ def bbknn_alignment(adata: AnnData, batch_key: str, hvg=None, **kwargs):
         )
 
 
-def combat_alignment(adata: AnnData, batch_key: str):
+def combat_alignment(adata: AnnData, batch_key):
     """ComBat wrapper function (``scanpy`` implementation)
 
     Using scanpy implementation of `Combat <https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.combat.html>`_
@@ -233,7 +232,7 @@ def combat_alignment(adata: AnnData, batch_key: str):
     return adata_int
 
 
-def desc_alignment(adata: AnnData, batch_key: str, res=0.8, ncores=None, tmp_dir=None, use_gpu=False, gpu_id=None):
+def desc_alignment(adata: AnnData, batch_key, res=0.8, ncores=None, tmp_dir=None, use_gpu=False, gpu_id=None):
     """DESC wrapper function
 
     Based on `desc package <https://github.com/eleozzr/desc>`_
@@ -281,3 +280,58 @@ def desc_alignment(adata: AnnData, batch_key: str, res=0.8, ncores=None, tmp_dir
     adata_out.obsm["aligned_desc"] = adata_out.obsm["X_Embeded_z" + str(res)]
 
     return adata_out
+
+
+def spatialign_alignment(adata: AnnData, batch_key="batch", latent_dims=100, n_neigh=15, is_verbose=False, tau1=0.2,
+                         tau2=1., tau3=0.5, save_path="./spatialign_output"):
+    """spatiAlign wrapper function
+
+     Based on `sptiAlign package <https://github.com/zhangchao162/Spatialign.git>`_
+
+    :param adata: preprocessed ``anndata`` object
+    :param batch_key: batch key in ``adata.obs``
+    :param latent_dims: The number of embedding dimensions, default, 100.
+    :param n_neigh: The number of neighbors selected when constructing a spatial neighbor graph. default, 15.
+    :param is_verbose: Whether the detail information is print, default, True.
+    :param tau1: Instance level and pseudo prototypical cluster level contrastive learning parameters, default, 0.2
+    :param tau2: Pseudo prototypical cluster entropy parameter, default, 1.
+    :param tau3: Cross-batch instance self-supervised learning parameter, default, 0.5
+    :param save_path: The path of alignment dataset and saved spatialign.
+    :return: ``anndata`` object containing the corrected feature matrix
+    """
+
+    try:
+        from spatialign import Spatialign
+    except ImportError:
+        raise ImportError("\nplease install desc:\n\n\t$ pip install spatialign==0.0.2a0")
+
+    model = Spatialign(
+        merge_data=adata, batch_key=batch_key, is_hvg=False, is_reduce=False, n_pcs=100, n_hvg=2000, n_neigh=n_neigh,
+        is_undirected=True, latent_dims=latent_dims, is_verbose=is_verbose, seed=42, gpu=None, save_path=save_path
+    )
+    model.train(lr=1e-3, max_epoch=500, alpha=0.5, patient=15, tau1=tau1, tau2=tau2, tau3=tau3)
+
+    corrected_data = model.alignment()
+
+    return corrected_data
+
+
+def scalex_alignment(adata, batch_key="batch"):
+    """scalex wrapper function
+
+    Based on `scalex package <https://github.com/jsxlei/SCALEX.git>`_
+
+    :param adata: preprocessed ``anndata`` object
+    :param batch_key: batch key in ``adata.obs``
+    :return: ``anndata`` object containing the corrected feature matrix
+    """
+    try:
+        from scalex import SCALEX
+    except ImportError:
+        raise ImportError("\nplease install desc:\n\n\t$ pip install scalex")
+
+    split, categories = split_batches(adata, batch_key, return_categories=True)
+    corrected = SCALEX(split, processed=True, batch_name=batch_key, show=False, ignore_umap=True)
+
+    return corrected
+import rpy2.robjects

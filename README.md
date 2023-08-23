@@ -1,4 +1,7 @@
-[![python >3.8.8](https://img.shields.io/badge/python-3.8.8-brightgreen)](https://www.python.org/)          
+[![python >3.8.8](https://img.shields.io/badge/python-3.8.8-brightgreen)](https://www.python.org/)
+[![Downloads](https://static.pepy.tech/badge/stereoalign)](https://pepy.tech/project/stereoalign)
+[![Downloads](https://static.pepy.tech/badge/stereoalign/month)](https://pepy.tech/project/stereoalign)
+[![Downloads](https://static.pepy.tech/badge/stereoalign/week)](https://pepy.tech/project/stereoalign)
 # A toolkit for data integration
 ***        
 Behold, a magnificent toolkit emerges, designed to seamlessly integrate the vast realm of data in the realm of single-cell genomics.   Within its hallowed digital confines, this toolkit bestows upon researchers the power to harmoniously merge and analyze the intricate tapestry of cellular information. Crafted with meticulous care, this toolkit embodies the epitome of elegance and efficiency.   It serves as a conduit, enabling the synthesis of diverse datasets from single-cell genomics experiments, unlocking new realms of knowledge and understanding. The power of data integration within this toolkit extends beyond mere aggregation.   It empowers researchers to unravel the intricate web of cellular interactions, uncovering hidden patterns, identifying novel cell types, and discerning the complex dynamics that govern cellular behavior. Through its refined algorithms and advanced statistical techniques, this toolkit illuminates the path towards deeper insights and discoveries.   It refines and enhances the quality of data, mitigating confounding factors and removing noise, thus unveiling the true essence of the cellular landscape. As the sun sets on the horizon of single-cell genomics, this toolkit emerges as a guiding beacon, illuminating the path towards a more comprehensive understanding of cellular complexity.   Embrace its power and unlock the secrets hidden within the realm of single-cell genomics.          
@@ -21,32 +24,37 @@ import stereoAlign
 ```
 We created the python package called `stereoAlign` that uses `scanpy` to streamline the integration of single-cell datasets and evaluate the results. The package contains several modules for preprocessing an `anndata` object, running integration methods and evaluating the resulting using a number of metrics. Functions for the data integration methods are in `stereoAlign.alignment` or for short `stereoAlign.alg` and metrics are under `stereoAlign.metrics`.
        
+# Tutorials        
+Quick Start [https://stereoalign-tutorial.readthedocs.io/en/latest/index.html#](https://stereoalign-tutorial.readthedocs.io/en/latest/index.html#)        
         
 # Integration Tools        
 This repository contains the code for the `stereoAlign` package for data integration tools.           
 This toolkit that is compared include:          
 
-| **Integration Method** |                  **Invoke**                  |                                                                                                   **Describe**                                                                                                   |
-|:----------------------:|:--------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|        Harmony         |     `stereoAlign.alg.harmony_alignment`      |                                                        Harmony wrapper function based on `harmony-pytorch` <https://github.com/lilab-bcb/harmony-pytorch>                                                        |
-|       Scanorama        |    `stereoAlign.alg.scanorama_alignment`     |                                                             Scanorama wrapper function based on `scanorama` <https://github.com/brianhie/scanorama>                                                              |
-|         scGEN          |      `stereoAlign.alg.scgen_alignment`       | scGen wrapper function based on `scgen` <https://github.com/theislab/scgen> with parametrization taken from the tutorial `notebook` <https://scgen.readthedocs.io/en/stable/tutorials/scgen_batch_removal.html>. |
-|          scvi          |       `stereoAlign.alg.scvi_alignment`       |                                     scVI wrapper function based on scvi-tools version >=0.16.0 (available through <https://docs.scvi-tools.org/en/stable/installation.html>)                                     |
-|          MNN           |       `stereoAlign.alg.mnn_alignment`        |                                                  MNN wrapper function (``mnnpy`` implementation) based on `mnnpy package` <https://github.com/chriscainx/mnnpy>                                                  |
-|         BBKNN          |      `stereoAlign.alg.bbknn_alignment`       |                                                               BBKNN wrapper function based on `bbknn package` <https://github.com/Teichlab/bbknn>                                                                |
-|         Combat         |      `stereoAlign.alg.combat_alignment`      |                      ComBat wrapper function (``scanpy`` implementation) using scanpy implementation of `Combat` <https://scanpy.readthedocs.io/en/stable/generated/scanpy.pp.combat.html>                       |
-|          DESC          |       `stereoAlign.alg.desc_alignment`       |                                                                 DESC wrapper function based on `desc package` <https://github.com/eleozzr/desc>                                                                  |
-|      More methods      | Additional methods are being incorporated... |                                                                                                                                                                                                                  |
+| **Integration Method** |               **Invoke**               |      **Output**      |                                     **Recommendation index**                                      |                                                                          **Describe**                                                                           |  Language  |
+|:----------------------:|:--------------------------------------:|:--------------------:|:-------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------:|
+|       `Harmony`        |  `stereoAlign.alg.harmony_alignment`   |      Embedding       |              <font color=YellowGreen size=5 face=Rockwell Extra Bold>__***__</font>               |                                   Leverage iterative clustering with maximum diversity for batch correction and integration.                                    | Python / R |
+|      `Scanorama`       | `stereoAlign.alg.scanorama_alignment`  |      Embedding       |              <font color=YellowGreen size=5 face=Rockwell Extra Bold>__****__</font>              |                            Leverage computer vision algorithms for panorama stitching matches for batch correction and integration.                             |   Python   |
+|        `scGEN`         |   `stereoAlign.alg.scgen_alignment`    |       Features       |              <font color=YellowGreen size=5 face=Rockwell Extra Bold>__****__</font>              |           Use variational autoencoders to reduce the dimension of gene expression matrix, and apply extra label to batch correction and integrations.           |   Python   |
+|         `scvi`         |    `stereoAlign.alg.scvi_alignment`    |      Embedding       |              <font color=YellowGreen size=5 face=Rockwell Extra Bold>__****__</font>              |                                                  Use variational autoencoders to batch correct and integrate.                                                   |   Python   |
+|         `MNN`          |    `stereoAlign.alg.mnn_alignment`     |       Features       |               <font color=YellowGreen size=5 face=Rockwell Extra Bold>__**__</font>               |                                             Leverage mutual nearest neighbor for batch correction and integration.                                              |   Python   |                                                                                                                                                                                                                  
+|        `BBKNN`         |   `stereoAlign.alg.bbknn_alignment`    |        Graph         |              <font color=YellowGreen size=5 face=Rockwell Extra Bold>__***__</font>               |     BBKNN taking each cell and identifying a (smaller) k nearest neighbours in each batch separately, and merged into a final neighbour list for the cell.      |   Python   |                                                                                                                                                                                                                  
+|        `Combat`        |   `stereoAlign.alg.combat_alignment`   |       Features       |               <font color=YellowGreen size=5 face=Rockwell Extra Bold>__*__</font>                |                                             Leverage empirical Bayesian model for batch correction and integration.                                             |   Python   |                                                                                                                                                                                                                 
+|         `DESC`         |    `stereoAlign.alg.desc_alignment`    |      Embedding       |               <font color=YellowGreen size=5 face=Rockwell Extra Bold>__**__</font>               | DESC eventually eliminates batch effects by recurrent self-learning, as long as technological changes between batches are fewer than real biological variances. |   Python   |                                                                                                                                                                                                                  
+|       `PRECAST`        |                                        |      Embedding       |              <font color=YellowGreen size=5 face=Rockwell Extra Bold>__****__</font>              |                            PRECAST is a probabilistic model-based approach that integrates SRT datasets from multiple tissue slides.                            |     R      |                                                                                                                                                                                                                  
+|      `spatiAlign`      | `stereoAlign.alg.spatialign_alignment` | Embedding / Features |             <font color=YellowGreen size=5 face=Rockwell Extra Bold>__*****__</font>              |                       spatiAlign is an unsupervised across domain adapatation methods for SRT datasets batch correction and integration.                        |   Python   |
+|        `SCALEX`        |   `stereoAlign.alg.scalex_alignment`   |      Embedding       |               <font color=YellowGreen size=5 face=Rockwell Extra Bold>__**__</font>               |                                    SCALEX leverage domain specific batch normalization for batch correction and integration.                                    |   Python   |
+
 
         
 # Metric        
-|  **Metric Method**  | **Invoke**                               |
-|:-------------------:|:-----------------------------------------|
-|         ARI         | `stereoAlign.metrics.cal_ari`                |
-| Graph connectivity  | `stereoAlign.metrics.cal_graph_connectivity` |
-|        KBET         | `stereoAlign.metrics.cal_kbet`           |
-|        LISI         | `stereoAlign.metrics.cal_lisi`           |
-|     Silhouette      | `stereoAlign.metrics.cal_silhouette`         |
+|  **Metric Method**  |                  **Invoke**                   |
+|:-------------------:|:---------------------------------------------:|
+|         ARI         |         `stereoAlign.metrics.cal_ari`         |
+| Graph connectivity  | `stereoAlign.metrics.cal_graph_connectivity`  |
+|        KBET         |        `stereoAlign.metrics.cal_kbet`         |
+|        LISI         |        `stereoAlign.metrics.cal_lisi`         |
+|     Silhouette      |     `stereoAlign.metrics.cal_silhouette`      |
         
 
  

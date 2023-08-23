@@ -7,7 +7,7 @@
 import setuptools
 from wheel.bdist_wheel import bdist_wheel
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
