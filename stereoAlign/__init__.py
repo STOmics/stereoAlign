@@ -4,7 +4,7 @@
 # @Author  : zhangchao
 # @File    : __init__.py.py
 # @Email   : zhangchao5@genomics.cn
-from . import alignment, metrics, preprocessing
+from . import alignment, metrics, preprocessing, annotation
 from warnings import filterwarnings
 
 filterwarnings("ignore")
@@ -12,3 +12,4 @@ __version__ = "0.0.1"
 
 alg = alignment
 pp = preprocessing
+ann = annotation
