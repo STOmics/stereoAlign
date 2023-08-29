@@ -44,7 +44,13 @@ def tangram_annotation(single_adata: AnnData,
     device:
         Optional. Default is 'cpu'.
     perc:
+
     verbose:
+
+
+    Returns
+    -------
+
     """
     try:
         import tangram as tg

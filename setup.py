@@ -7,7 +7,7 @@
 import setuptools
 from wheel.bdist_wheel import bdist_wheel
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -27,7 +27,7 @@ setuptools.setup(
     version=__version__,
     author="zhangchao",
     author_email="zhangchao5@genomics.cn",
-    description="A toolkit package of batch effects removal",
+    description="A toolkit package of data integration",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),

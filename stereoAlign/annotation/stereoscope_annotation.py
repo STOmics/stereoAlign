@@ -32,9 +32,17 @@ def stereoscope_annotation(single_adata,
     annotation:
         single cell annotation cell type, which should be saved in `.obs`
     train_single_model:
+
     train_spatial_model
+
     model_path:
+
+
+    Returns
+    -------
+
     """
+
     scvi.settings.seed = 0
     check_data_type(spatial_adata)
 
@@ -67,4 +75,3 @@ def stereoscope_annotation(single_adata,
     spatial_adata.obs = pd.concat([spatial_adata.obs, spatial_model.get_proportions()], axis=1)
 
     return spatial_adata
-

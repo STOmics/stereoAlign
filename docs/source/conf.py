@@ -71,4 +71,7 @@ nbsphinx_thumbnails = {
     "notebook/Tutorial-2-Data-integration-Using-BBKNN": "_static/face.png",
     "notebook/Tutorial-3-Data-integration-Using-scgen": "_static/face.png",
     "notebook/Tutorial-4-Data-integration-Using-scvi": "_static/face.png",
+    "notebook/DestVI annotation tutorial": "_static/face.png",
+    "notebook/stereoscope annotation tutorial": "_static/face.png",
+    "notebook/Tangram annotation tutorial": "_static/face.png",
 }

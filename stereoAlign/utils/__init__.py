@@ -5,6 +5,6 @@
 # @File    : __init__.py.py
 # @Email   : zhangchao5@genomics.cn
 from .exceptions import OptionalDependencyNotInstalled
-from .check_data import check_sanity, check_adata, check_batch, split_batches, merge_adata
+from .check_data import check_sanity, check_adata, check_batch, split_batches, merge_adata, check_data_type
 from .pca_lowrank import pca_lowrank
 from .get_neighbors import get_neighbors

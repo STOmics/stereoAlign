@@ -7,3 +7,9 @@ Tutorials
     Tutorial-2-Data-integration-Using-BBKNN
     Tutorial-3-Data-integration-Using-scgen
     Tutorial-4-Data-integration-Using-scvi
+    DestVI annotation tutorial
+    stereoscope annotation tutorial
+    Tangram annotation tutorial
+
+
+

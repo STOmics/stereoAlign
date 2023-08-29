@@ -6,4 +6,5 @@ API
 
    preprocessing
    alignment
+   annotation
    metrics
