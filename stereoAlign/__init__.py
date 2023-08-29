@@ -11,5 +11,5 @@ filterwarnings("ignore")
 __version__ = "0.0.1"
 
 alg = alignment
-pp = preprocessing
 ann = annotation
+pp = preprocessing
