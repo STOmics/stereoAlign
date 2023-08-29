@@ -4,7 +4,16 @@
 # @Author  : zhangchao
 # @File    : check_data.py
 # @Email   : zhangchao5@genomics.cn
+import scipy.sparse as sp
 from anndata import AnnData
+
+
+def check_data_type(adata: AnnData):
+    data = adata.X if not sp.issparse(adata.X) else adata.X.toarray()
+    if (data % 1 != 0).any().any():
+        raise ValueError("The count matrix should only contain integers.")
+    if (data < 0).any().any():
+        raise ValueError("The count matrix should only contain non-negative values.")
 
 
 def check_adata(adata):
