@@ -7,4 +7,4 @@
 from .tangram_annotation import tangram_annotation
 from .stereoscope_annotation import stereoscope_annotation
 from .spatialID_annotation import spatial_id_annotation
-from .destVI_annotation import dest_vi_annotation
+from .destVI_annotation import destVI_annotation
