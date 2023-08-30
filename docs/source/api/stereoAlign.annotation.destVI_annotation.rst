@@ -1,6 +1,6 @@
-﻿stereoAlign.annotation.dest\_vi\_annotation
+﻿stereoAlign.annotation.destVI\_annotation
 ===========================================
 
 .. currentmodule:: stereoAlign.annotation
 
-.. autofunction:: dest_vi_annotation
+.. autofunction:: destVI_annotation
