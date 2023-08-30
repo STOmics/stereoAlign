@@ -14,18 +14,9 @@ def dest_vi_annotation(single_adata, spatial_adata, annotation):
 
     DestVI endeavors to seamlessly integrate single-cell (or single-nucleus) gene expression data with spatial gene expression data.
 
-    Parameters
-    ----------
-    single_adata: `AnnData`
-        single cell data
-    spatial_adata: `AnnData`
-        spatial expression data
-    annotation:
-        single cell annotation cell type, which should be saved in `.obs`
-
-    Returns
-    -------
-
+    :param single_adata: `AnnData`, single cell data
+    :param spatial_adata: `AnnData`, spatial expression data
+    :param annotation: single cell annotation cell type, which should be saved in `.obs`
     """
     assert "counts" in single_adata.layers.keys(), "can not found `counts` attribute in `.layers` keys."
     assert "counts" in spatial_adata.layers.keys(), "can not found `counts` attribute in `.layers` keys."

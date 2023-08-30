@@ -8,7 +8,7 @@ from . import alignment, metrics, preprocessing, annotation
 from warnings import filterwarnings
 
 filterwarnings("ignore")
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 alg = alignment
 ann = annotation

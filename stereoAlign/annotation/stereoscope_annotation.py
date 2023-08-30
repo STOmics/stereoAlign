@@ -19,28 +19,17 @@ def stereoscope_annotation(single_adata,
                            train_single_model=True,
                            train_spatial_model=True,
                            model_path="./stereoscope_output"):
-    """STEREOSCOPE wrapper function
+    """Stereoscope wrapper function
 
     Stereoscope endeavors to seamlessly integrate single-cell (or single-nucleus) gene expression data with spatial gene expression data.
 
-    Parameters
-    ----------
-    single_adata: `AnnData`
-        single cell data
-    spatial_adata: `AnnData`
-        spatial expression data
-    annotation:
-        single cell annotation cell type, which should be saved in `.obs`
-    train_single_model:
-
-    train_spatial_model
-
-    model_path:
-
-
-    Returns
-    -------
-
+    :param single_adata: `AnnData`, single cell data
+    :param spatial_adata: `AnnData`, spatial expression data
+    :param annotation: single cell annotation cell type, which should be saved in `.obs`
+    :param train_single_model:
+    :param train_spatial_model:
+    :param model_path: trained model save path
+    :return: annotation results, which saved in `obs`
     """
 
     scvi.settings.seed = 0

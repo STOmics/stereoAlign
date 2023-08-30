@@ -29,28 +29,15 @@ def tangram_annotation(single_adata: AnnData,
 
     The annotation results will save in `.obs`
 
-    Parameters
-    ----------
-    single_adata: `AnnData`
-        single cell data
-    spatial_adata: `AnnData`
-        spatial expression data
-    markers:
-        Optional. List of genes to use. If `None`, HVG genes are used.
-    annotation:
-        single cell annotation cell type, which should be saved in `.obs`
-    mode:
-        Optional. Tangram mapping mode. Currently supported: 'cell', 'clusters', 'constrained'. Default is 'cell'.
-    device:
-        Optional. Default is 'cpu'.
-    perc:
-
-    verbose:
-
-
-    Returns
-    -------
-
+    :param single_adata: `AnnData`, single cell data
+    :param spatial_adata: `AnnData`, spatial expression data
+    :param markers:
+    :param annotation: single cell annotation cell type, which should be saved in `.obs`
+    :param mode: Optional. Tangram mapping mode. Currently supported: 'cell', 'clusters', 'constrained'. Default is 'cell'.
+    :param device: Optional. Default is 'cpu'.
+    :param perc:
+    :param verbose:
+    :return:
     """
     try:
         import tangram as tg
