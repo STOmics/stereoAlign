@@ -9,7 +9,7 @@ import pandas as pd
 from scvi.model import CondSCVI, DestVI
 
 
-def dest_vi_annotation(single_adata, spatial_adata, annotation):
+def destVI_annotation(single_adata, spatial_adata, annotation):
     """DestVI wrapper function
 
     DestVI endeavors to seamlessly integrate single-cell (or single-nucleus) gene expression data with spatial gene expression data.
